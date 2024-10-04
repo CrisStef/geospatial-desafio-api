@@ -40,8 +40,9 @@ public class DatabaseCleaner {
 
 	private void checkTestDatabase() throws SQLException {
 		String catalog = connection.getCatalog();
+		logger.debug("Catalog name: {}", catalog);
 
-		if (catalog == null || !catalog.endsWith("test")) {
+		if (catalog == null || !catalog.toLowerCase().contains("test")) {
 			throw new RuntimeException(
 					"Cannot clear database tables because '" + catalog + "' is not a test database (suffix 'test' not found).");
 		}
