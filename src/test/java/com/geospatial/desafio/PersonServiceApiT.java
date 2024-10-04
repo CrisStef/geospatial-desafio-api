@@ -267,13 +267,13 @@ public class PersonServiceApiT {
 	@Test
 	public void returnStatusNotFoundWhenGetPersonSalaryTest() {
 		given()
-				.pathParam("personId", PERSON_ID_INVALID)
-				.queryParam("output", "aaa")
-				.accept(ContentType.JSON)
-				.when()
-				.get("/{personId}/salary")
-				.then()
-				.statusCode(HttpStatus.NOT_FOUND.value());
+			.pathParam("personId", PERSON_ID_INVALID)
+			.queryParam("output", "aaa")
+			.accept(ContentType.JSON)
+		.when()
+			.get("/{personId}/salary")
+		.then()
+			.statusCode(HttpStatus.NOT_FOUND.value());
 	}
 
 	private void insertData() {
